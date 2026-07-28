@@ -301,7 +301,14 @@ const Faqs = () => {
               Manvendra Singh
             </a>
             {' '}&{' '}
-            Manish Kumar
+            <a 
+              href="https://www.linkedin.com/in/manish-kumar-4b013132a/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:underline cursor-pointer hover:text-black transition-colors"
+            >
+              Manish Kumar
+            </a>
           </p>
         </div>
       </footer>
