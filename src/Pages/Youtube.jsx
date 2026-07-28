@@ -84,7 +84,7 @@ const videoData = [
   {
     id: 6,
     title: "SIH Problem Statements Deep Dive",
-    description: "Detailed analysis of SIH 2025 problem statements",
+    description: "Detailed analysis of SIH 2026 problem statements",
     videoId: "dNe-3Uk4o_c",
     duration: "22:15",
     date: "2023-08-25",
