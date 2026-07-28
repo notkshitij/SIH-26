@@ -284,6 +284,15 @@ const Faqs = () => {
           <p className="font-handwritten text-gray-700 text-xs mt-1 font-bold">
             Developed by{' '}
             <a 
+              href="https://www.linkedin.com/in/kshitijjain-dev/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:underline cursor-pointer hover:text-black transition-colors"
+            >
+              Kshitij Jain
+            </a>
+            {', '}
+            <a 
               href="https://www.linkedin.com/in/manvendra-singh-ab88b3330/" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -292,14 +301,7 @@ const Faqs = () => {
               Manvendra Singh
             </a>
             {' '}&{' '}
-            <a 
-              href="https://www.linkedin.com/in/kshitijjain-dev/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:underline cursor-pointer hover:text-black transition-colors"
-            >
-              Kshitij Jain
-            </a>
+            Manish Kumar
           </p>
         </div>
       </footer>

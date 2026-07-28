@@ -70,6 +70,15 @@ const Schedule = () => {
           <p className="font-handwritten text-gray-700 text-xs mt-0.5 font-bold">
             Developed by{' '}
             <a 
+              href="https://www.linkedin.com/in/kshitijjain-dev/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:underline cursor-pointer hover:text-black transition-colors"
+            >
+              Kshitij Jain
+            </a>
+            {', '}
+            <a 
               href="https://www.linkedin.com/in/manvendra-singh-ab88b3330/" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -78,14 +87,7 @@ const Schedule = () => {
               Manvendra Singh
             </a>
             {' '}&{' '}
-            <a 
-              href="https://www.linkedin.com/in/kshitijjain-dev/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:underline cursor-pointer hover:text-black transition-colors"
-            >
-              Kshitij Jain
-            </a>
+            Manish Kumar
           </p>
           <p className="font-handwritten text-gray-400 text-[10px] mt-1">
             © {new Date().getFullYear()} SIH2026 - All rights reserved
