@@ -7,6 +7,7 @@ import Faqs from './Pages/Faqs';
 import Template from './Pages/Template';
 import Dashboard from './Pages/Dashboard';
 import YouTube from './Pages/Youtube';
+import Register from './Pages/Register';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
+      window.hasSplashPlayed = true;
     }, 2800); // 2.8 seconds splash time
     return () => clearTimeout(timer);
   }, []);
@@ -131,6 +133,10 @@ function App() {
         <Route 
           path="/template" 
           element={<Template />} 
+        />
+        <Route 
+          path="/register" 
+          element={<Register />} 
         />
         <Route 
           path="/youtube" 

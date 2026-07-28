@@ -1,8 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import sih2026Image from '../assets/SIH-2026.jpeg';
 
 const Schedule = () => {
+  const navigate = useNavigate();
+  
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
   return (
     <div className="min-h-screen bg-notebook-paper py-6 sm:py-12 px-3 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -42,13 +48,17 @@ const Schedule = () => {
           </p>
         </div>
 
-        {/* Mobile Navigation Buttons */}
-        <div className="mt-8 flex justify-center space-x-4 sm:hidden">
+        {/* Registration CTA Button */}
+        <div className="mt-8 flex justify-center">
           <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="btn-sketch-primary px-4 py-2 text-sm"
+            onClick={() => handleNavigation('/register')}
+            className="btn-sketch-primary px-8 py-3 text-base font-semibold shadow-md flex items-center gap-2 group cursor-pointer"
           >
-            Back to Top
+            Apply for your team registration
+            <svg className="w-5 h-5 inline-block transform group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 12c4-0.5,14-0.5,16 0" />
+              <path d="M14 6l6 6-6 6" />
+            </svg>
           </button>
         </div>
 

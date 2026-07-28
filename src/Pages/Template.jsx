@@ -69,11 +69,11 @@ const Template = () => {
                         </motion.div>
 
                         <motion.div
-                            className="w-full bg-white/60 border-sketch overflow-hidden"
+                            className="w-full bg-transparent overflow-hidden"
                             variants={itemVariants}
                         >
-                            <div className="p-6 flex flex-col items-center justify-center min-h-[380px] bg-transparent">
-                                <div className="max-w-2xl w-full bg-white p-6 md:p-8 border-sketch text-center shadow-sm">
+                            <div className="p-4 sm:p-6 flex flex-col items-center justify-center min-h-[340px] sm:min-h-[380px] bg-transparent">
+                                <div className="max-w-2xl w-full bg-white p-5 sm:p-8 border-none sm:border-sketch text-center shadow-sm">
                                     <div className="mb-6">
                                         <div className="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-blue-50">
                                             <svg
@@ -149,8 +149,8 @@ const Template = () => {
                     className="mt-10 bg-white/40 border-sketch p-6 md:p-8 shadow-sm max-w-6xl mx-auto"
                     variants={itemVariants}
                 >
-                    <h3 className="font-serif-elegant text-2xl font-bold text-gray-900 mb-6 text-center">How to Use This Template</h3>
-                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <h3 className="font-serif-elegant text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">How to Use This Template</h3>
+                    <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
                         {[
                             {
                                 icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z',
@@ -175,18 +175,18 @@ const Template = () => {
                         ].map((item, index) => (
                             <motion.div
                                 key={index}
-                                className="flex items-start p-4 bg-white border-sketch-thin hover:shadow-sm transition-shadow duration-200"
+                                className="flex flex-col sm:flex-row items-center sm:items-start p-3 sm:p-4 bg-white border-sketch-thin hover:shadow-sm transition-shadow duration-200 text-center sm:text-left"
                                 whileHover={{ y: -2 }}
                                 variants={itemVariants}
                             >
-                                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mr-4">
-                                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <div className="flex-shrink-0 h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mb-3 sm:mb-0 sm:mr-4">
+                                    <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={item.icon} />
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 className="font-serif-elegant text-lg font-bold text-gray-900">{item.title}</h4>
-                                    <p className="mt-1 text-xs text-gray-600 leading-relaxed">{item.description}</p>
+                                    <h4 className="font-serif-elegant text-sm sm:text-lg font-bold text-gray-900 leading-tight">{item.title}</h4>
+                                    <p className="mt-1 text-[10px] sm:text-xs text-gray-600 leading-normal sm:leading-relaxed">{item.description}</p>
                                 </div>
                             </motion.div>
                         ))}

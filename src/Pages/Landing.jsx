@@ -83,8 +83,8 @@ const SketchedRocket = () => (
 );
 
 const SketchedOval = ({ children, colorClass = "text-blue-600/80" }) => (
-  <div className="relative inline-flex items-center justify-center py-2 px-6 min-h-[60px]">
-    <span className="font-handwritten text-xl md:text-2xl font-bold text-gray-900 relative z-10">{children}</span>
+  <div className="relative inline-flex items-center justify-center py-1 sm:py-2 px-3 sm:px-6 min-h-[45px] sm:min-h-[60px]">
+    <span className="font-handwritten text-base sm:text-xl md:text-2xl font-bold text-gray-900 relative z-10">{children}</span>
     <svg className={`absolute inset-0 w-full h-full ${colorClass}`} viewBox="0 0 110 50" preserveAspectRatio="none" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
       {/* Sketched hand-drawn double loop oval */}
       <path d="M 12 25 C 12 10, 98 8, 98 25 C 98 40, 18 40, 15 27 C 12 18, 92 14, 88 25" />
@@ -144,10 +144,14 @@ const DesktopLanding = ({ navigate }) => {
   
   React.useEffect(() => {
     setIsMounted(true);
-    const timer = setTimeout(() => {
+    if (window.hasSplashPlayed) {
       setShouldAnimate(true);
-    }, 3200); // Wait for the 2.8s splash + 0.4s fadeout
-    return () => clearTimeout(timer);
+    } else {
+      const timer = setTimeout(() => {
+        setShouldAnimate(true);
+      }, 3200); // Wait for the 2.8s splash + 0.4s fadeout
+      return () => clearTimeout(timer);
+    }
   }, []);
   
   const handleNavigation = (path) => {
@@ -155,7 +159,7 @@ const DesktopLanding = ({ navigate }) => {
   };
 
   return (
-    <div className={`h-screen w-full bg-notebook-paper p-4 md:p-8 flex flex-col justify-between overflow-hidden relative ${isMounted ? 'opacity-100' : 'opacity-0'}`} style={{ transition: 'opacity 300ms ease-in-out' }}>
+    <div className={`min-h-screen lg:h-screen w-full bg-notebook-paper p-4 md:p-8 flex flex-col justify-between overflow-y-auto lg:overflow-hidden relative ${isMounted ? 'opacity-100' : 'opacity-0'}`} style={{ transition: 'opacity 300ms ease-in-out' }}>
       
       {/* Decorative Grid Line Borders on all sides */}
       <div className="absolute top-0 left-0 right-0 h-1 border-b border-sketch-dashed opacity-25 z-50"></div>
@@ -233,18 +237,16 @@ const DesktopLanding = ({ navigate }) => {
 
               {/* Main CTA Button styled like a sketching border */}
               <motion.div whileHover={buttonHover} whileTap={buttonTap} className="mb-3">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLScAdGIerAmcKVy4nh5W5A8cF_CO_YI9uOeD_K0JMDjgXofpTA/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-sketch-primary px-8 py-3 text-base md:text-lg inline-flex items-center gap-2 select-none shadow-md group"
+                <button
+                  onClick={() => handleNavigation('/register')}
+                  className="btn-sketch-primary px-8 py-3 text-base md:text-lg inline-flex items-center gap-2 select-none shadow-md group cursor-pointer"
                 >
                   Apply for your team registration
                   <svg className="w-5 h-5 inline-block ml-1 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 12c4-0.5,14-0.5,16 0" />
                     <path d="M14 6l6 6-6 6" />
                   </svg>
-                </a>
+                </button>
               </motion.div>
               
               <span className="font-handwritten text-gray-500 text-xs">#SmartIndiaHackathon #InnovateForIndia</span>
@@ -260,7 +262,7 @@ const DesktopLanding = ({ navigate }) => {
         {/* Feature Grid / Cards */}
         <section className="mt-4 max-w-6xl mx-auto w-full">
           <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full"
             initial="hidden"
             animate={shouldAnimate ? "visible" : "hidden"}
             variants={containerVariants}
@@ -300,14 +302,14 @@ const DesktopLanding = ({ navigate }) => {
                 variants={cardDropVariants}
                 onClick={card.onClick}
                 whileHover={{ y: -6, backgroundColor: "rgba(255, 255, 255, 0.95)" }}
-                className="bg-white/40 border-sketch p-4 flex flex-col items-center justify-between text-center cursor-pointer shadow-sm hover:shadow-md select-none"
+                className="bg-white/40 border-sketch p-2.5 sm:p-4 flex flex-col items-center justify-between text-center cursor-pointer shadow-sm hover:shadow-md select-none"
               >
-                <div className="flex flex-col items-center gap-2 w-full">
+                <div className="flex flex-col items-center gap-1.5 w-full">
                   <SketchedOval colorClass={card.color}>
                     {card.ovalText}
                   </SketchedOval>
-                  <h3 className="font-serif-elegant text-base font-bold text-gray-900">{card.title}</h3>
-                  <p className="text-gray-500 text-[11px] leading-relaxed">{card.desc}</p>
+                  <h3 className="font-serif-elegant text-xs sm:text-base font-bold text-gray-900 leading-tight">{card.title}</h3>
+                  <p className="text-gray-500 text-[9px] sm:text-[11px] leading-normal sm:leading-relaxed">{card.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -347,13 +349,7 @@ const DesktopLanding = ({ navigate }) => {
 };
 
 const Landing = () => {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
   const navigate = useNavigate();
-  
-  if (isMobile) {
-    return <MobileMessage />;
-  }
-  
   return <DesktopLanding navigate={navigate} />;
 };
 
