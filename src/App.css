@@ -1,0 +1,125 @@
+/* Sketch Font Styles */
+.font-handwritten {
+  font-family: 'Architects Daughter', 'Caveat', cursive !important;
+}
+
+.font-serif-elegant {
+  font-family: 'EB Garamond', Georgia, serif !important;
+}
+
+/* Notebook paper grid background pattern */
+.bg-notebook-paper {
+  background-color: #fbf9f3 !important; /* warm paper cream */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
+}
+
+/* Hand-drawn sketch border utility with irregular corners */
+.border-sketch {
+  border: 2px solid #1a1a1a !important;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
+}
+
+.border-sketch-thin {
+  border: 1px solid #2d2d2d !important;
+  border-radius: 255px 12px 225px 12px/12px 225px 12px 255px !important;
+}
+
+.border-sketch-dashed {
+  border: 2px dashed #1a1a1a !important;
+}
+
+.border-sketch-dotted {
+  border: 2px dotted #1a1a1a !important;
+}
+
+/* Hand-drawn sketchy buttons */
+.btn-sketch-primary {
+  background-color: #1a1a1a !important;
+  color: #fbf9f3 !important;
+  border: 2px solid #1a1a1a !important;
+  border-radius: 255px 20px 225px 20px / 20px 225px 20px 255px !important;
+  font-family: 'Architects Daughter', cursive !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 2px 3px 0px rgba(0, 0, 0, 0.85) !important;
+  cursor: pointer;
+}
+.btn-sketch-primary:hover {
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 3px 5px 0px rgba(0, 0, 0, 0.85) !important;
+}
+.btn-sketch-primary:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.85) !important;
+}
+
+.btn-sketch-secondary {
+  background-color: transparent !important;
+  color: #1a1a1a !important;
+  border: 2px solid #1a1a1a !important;
+  border-radius: 255px 20px 225px 20px / 20px 225px 20px 255px !important;
+  font-family: 'Architects Daughter', cursive !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 2px 3px 0px rgba(0, 0, 0, 0.85) !important;
+  cursor: pointer;
+}
+.btn-sketch-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 3px 5px 0px rgba(0, 0, 0, 0.85) !important;
+}
+.btn-sketch-secondary:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Notebook torn-edge decorative paper container */
+.notebook-container {
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06) !important;
+  border-left: 2px dashed rgba(220, 38, 38, 0.15) !important;
+}
+
+/* Sketched highlighting effect on text */
+.highlight-sketch {
+  position: relative;
+  display: inline-block;
+}
+.highlight-sketch::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0px !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 8px !important;
+  background-color: rgba(253, 224, 71, 0.4) !important; /* soft highlighter yellow */
+  z-index: -1 !important;
+  border-radius: 2px !important;
+}
+
+/* Custom thin scrollbar matching the notebook theme */
+html, body {
+  scrollbar-width: thin !important; /* Firefox */
+  scrollbar-color: #1a1a1a #fbf9f3 !important; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  width: 5px !important; /* very thin width */
+  height: 5px !important; /* very thin height for horizontal scroll */
+  display: block !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #fbf9f3 !important; /* matches cream notebook background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a !important; /* sketchy dark thumb */
+  border-radius: 9999px !important;
+  border: 1px solid #fbf9f3 !important; /* adds inner spacing for a thinner look */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #404040 !important;
+}
