@@ -291,7 +291,7 @@ const Faqs = () => {
             >
               Kshitij Jain
             </a>
-            {', '}
+            {' '}&{' '}
             <a 
               href="https://www.linkedin.com/in/manvendra-singh-ab88b3330/" 
               target="_blank" 
@@ -299,15 +299,6 @@ const Faqs = () => {
               className="hover:underline cursor-pointer hover:text-black transition-colors"
             >
               Manvendra Singh
-            </a>
-            {' '}&{' '}
-            <a 
-              href="https://www.linkedin.com/in/manish-kumar-4b013132a/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:underline cursor-pointer hover:text-black transition-colors"
-            >
-              Manish Kumar
             </a>
           </p>
         </div>

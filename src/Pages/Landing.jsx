@@ -330,7 +330,7 @@ const DesktopLanding = ({ navigate }) => {
             >
               Kshitij Jain
             </a>
-            {', '}
+            {' '}&{' '}
             <a 
               href="https://www.linkedin.com/in/manvendra-singh-ab88b3330/" 
               target="_blank" 
@@ -338,15 +338,6 @@ const DesktopLanding = ({ navigate }) => {
               className="hover:underline cursor-pointer hover:text-black transition-colors"
             >
               Manvendra Singh
-            </a>
-            {' '}&{' '}
-            <a 
-              href="https://www.linkedin.com/in/manish-kumar-4b013132a/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:underline cursor-pointer hover:text-black transition-colors"
-            >
-              Manish Kumar
             </a>
           </p>
           <p className="font-handwritten text-gray-400 text-[10px] mt-0.5">
