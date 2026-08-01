@@ -227,7 +227,7 @@ const DesktopLanding = ({ navigate }) => {
 
               {/* Elegant Editorial Serif Heading */}
               <h1 className="font-serif-elegant text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 max-w-3xl">
-                We make your ideas scale, compile code, and look premium.
+                Where Great Teams Build Extraordinary Solutions.
               </h1>
 
               {/* Body Text */}

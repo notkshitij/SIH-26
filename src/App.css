@@ -7,13 +7,9 @@
   font-family: 'EB Garamond', Georgia, serif !important;
 }
 
-/* Notebook paper grid background pattern */
+/* Notebook paper background */
 .bg-notebook-paper {
   background-color: #fbf9f3 !important; /* warm paper cream */
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px) !important;
-  background-size: 24px 24px !important;
 }
 
 /* Hand-drawn sketch border utility with irregular corners */
