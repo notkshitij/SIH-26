@@ -150,11 +150,11 @@ const DesktopLanding = ({ navigate }) => {
             <span className="text-lg sm:text-2xl font-black text-[#0c2340] tracking-tight font-sans uppercase mt-0.5">
               Internal Selection
             </span>
-            <div className="flex flex-col items-start mt-0.5">
+            <div className="flex flex-col items-start mt-0.5 w-full">
               <span className="text-lg sm:text-2xl font-black text-[#1d4ed8] tracking-tight font-sans uppercase">
                 Poornima University
               </span>
-              <div className="w-12 h-[2.5px] bg-[#1d4ed8] mt-0.5 rounded-full"></div>
+              <div className="w-full h-[2.5px] bg-[#1d4ed8] mt-0.5 rounded-full"></div>
             </div>
           </div>
         </div>
@@ -448,11 +448,11 @@ const MobileLanding = ({ navigate }) => {
             <span className="text-[12px] font-black text-[#0c2340] tracking-tight uppercase mt-0.5">
               Internal Selection
             </span>
-            <div className="flex flex-col items-start mt-0.5">
+            <div className="flex flex-col items-start mt-0.5 w-full">
               <span className="text-[12px] font-black text-[#2563eb] tracking-tight uppercase">
                 Poornima University
               </span>
-              <div className="w-8 h-[1.5px] bg-[#2563eb] mt-0.5 rounded-full"></div>
+              <div className="w-full h-[1.5px] bg-[#2563eb] mt-0.5 rounded-full"></div>
             </div>
           </div>
         </div>
