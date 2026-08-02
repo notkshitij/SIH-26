@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
+import backgroundImage from '../assets/background.png';
 
 // Animation variants
 const containerVariants = {
@@ -159,7 +160,7 @@ const DesktopLanding = ({ navigate }) => {
   };
 
   return (
-    <div className={`min-h-screen lg:h-screen w-full bg-notebook-paper p-4 md:p-8 flex flex-col justify-between overflow-y-auto lg:overflow-hidden relative ${isMounted ? 'opacity-100' : 'opacity-0'}`} style={{ transition: 'opacity 300ms ease-in-out' }}>
+    <div className={`min-h-screen lg:h-screen w-full p-4 md:p-8 flex flex-col justify-between overflow-y-auto lg:overflow-hidden relative ${isMounted ? 'opacity-100' : 'opacity-0'}`} style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', transition: 'opacity 300ms ease-in-out' }}>
       
       {/* Decorative Grid Line Borders on all sides */}
       <div className="absolute top-0 left-0 right-0 h-1 border-b border-sketch-dashed opacity-25 z-50"></div>
