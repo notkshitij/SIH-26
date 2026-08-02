@@ -168,43 +168,47 @@ const DesktopLanding = ({ navigate }) => {
       <div className="absolute top-0 bottom-0 left-0 w-1 border-r border-sketch-dashed opacity-25 z-50"></div>
       <div className="absolute top-0 bottom-0 right-0 w-1 border-l border-sketch-dashed opacity-25 z-50"></div>
 
-        <header className="max-w-6xl mx-auto w-full flex flex-col sm:flex-row justify-between items-center gap-4 pb-3 border-b border-sketch-dashed mb-4">
-          <div className="flex items-center gap-2 cursor-pointer select-none" onClick={() => handleNavigation('/')}>
-            <span className="font-handwritten text-2xl font-extrabold text-gray-900 transform -rotate-1 tracking-tight">
-              SIH 2026
-            </span>
+        <header className="max-w-7.5xl mx-auto w-full flex flex-col lg:flex-row justify-between items-center gap-4 py-3 mb-4">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+            <div className="flex items-center gap-3 cursor-pointer select-none" onClick={() => handleNavigation('/')}>
+              <img src="/images/pu_logo.png" alt="Poornima University Logo" className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-sm" />
+              <span className="font-handwritten text-lg sm:text-xl md:text-2xl font-extrabold text-gray-900 tracking-tight leading-normal flex items-center">
+                POORNIMA UNIVERSITY INTERNAL HACKATHON 2026 (SIH)
+              </span>
+            </div>
+            
           </div>
 
           {/* Navigation Links */}
           <nav className="flex flex-wrap items-center justify-center gap-6 md:gap-8 font-handwritten text-base font-bold text-gray-700">
-            <span onClick={() => handleNavigation('/dashboard')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5">
+            <span onClick={() => handleNavigation('/dashboard')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5 flex items-center">
               Problem Statements
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-200"></span>
             </span>
-            <span onClick={() => handleNavigation('/template')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5">
+            <span onClick={() => handleNavigation('/template')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5 flex items-center">
               PPT Template
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-200"></span>
             </span>
-            <span onClick={() => handleNavigation('/schedule')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5">
+            <span onClick={() => handleNavigation('/schedule')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5 flex items-center">
               Event Schedule
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-200"></span>
             </span>
-            <span onClick={() => handleNavigation('/faqs')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5">
+            <span onClick={() => handleNavigation('/faqs')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5 flex items-center">
               FAQs
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-200"></span>
             </span>
           </nav>
-
-          {/* Header CTA */}
-          <div>
+           {/* Header CTA */}
+          <div className="flex items-center justify-center">
             <button
               onClick={() => handleNavigation('/youtube')}
-              className="btn-sketch-secondary px-4 py-1.5 text-xs flex items-center gap-1.5"
+              className="btn-sketch-secondary px-4 py-1.5 text-xs flex items-left gap-1.5"
             >
               Watch Guide 🎬
             </button>
           </div>
         </header>
+        
 
         {/* Hero Section */}
         <main className="flex-1 flex flex-col items-center justify-center py-2 max-w-6xl mx-auto w-full">
@@ -339,6 +343,14 @@ const DesktopLanding = ({ navigate }) => {
               className="hover:underline cursor-pointer hover:text-black transition-colors"
             >
               Manvendra Singh
+            </a> {' '}&{' '}
+            <a 
+              href="https://www.linkedin.com/in/manish-kumar-4b013132a/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:underline cursor-pointer hover:text-black transition-colors"
+            >
+              Manish Kumar
             </a>
           </p>
           <p className="font-handwritten text-gray-400 text-[10px] mt-0.5">
