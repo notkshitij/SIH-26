@@ -28,7 +28,7 @@ const Dashboard = () => {
           </button>
           
           <div className="flex flex-col items-end pr-4 border-r-2 border-blue-600 leading-tight">
-            <h1 className="font-serif text-2xl md:text-3xl font-extrabold text-[#0c2340]">Problem Statements</h1>
+            <h1 className="font-sans text-2xl md:text-3xl font-extrabold text-[#0c2340]">Problem Statements</h1>
             <p className="text-slate-500 text-[10px] sm:text-xs mt-1 font-sans">Browse and filter through SIH 2026 statements</p>
           </div>
         </div>
@@ -47,7 +47,7 @@ const Dashboard = () => {
             </div>
           </div>
           
-          <h2 className="font-serif text-2xl md:text-3xl font-extrabold text-[#0c2340] mb-2">Coming Soon!</h2>
+          <h2 className="font-sans text-2xl md:text-3xl font-extrabold text-[#0c2340] mb-2">Coming Soon!</h2>
           <div className="w-10 h-[2.5px] bg-blue-600 mx-auto mb-5 rounded-full"></div>
           
           <p className="text-[#0c2340] font-semibold text-sm sm:text-base mb-4 leading-relaxed font-sans max-w-[320px]">

@@ -130,7 +130,7 @@ const YouTube = () => {
             </button>
             
             <div className="flex flex-col items-end pr-4 border-r-2 border-blue-600 leading-tight">
-              <h1 className="font-serif text-2xl md:text-3xl font-extrabold text-[#0c2340]">Watch Guide & Videos</h1>
+              <h1 className="font-sans text-2xl md:text-3xl font-extrabold text-[#0c2340]">Watch Guide & Videos</h1>
               <p className="text-slate-500 text-[10px] sm:text-xs mt-1 font-sans">Official video guides, tutorials, and success stories for SIH 2026</p>
             </div>
           </div>
@@ -169,7 +169,7 @@ const YouTube = () => {
                 </div>
 
                 {/* Info */}
-                <h3 className="font-serif text-base sm:text-lg font-extrabold text-[#0c2340] mb-2 leading-snug line-clamp-2">
+                <h3 className="font-sans text-base sm:text-lg font-extrabold text-[#0c2340] mb-2 leading-snug line-clamp-2">
                   {video.title}
                 </h3>
                 <p className="font-sans text-slate-500 text-xs sm:text-sm mb-4 leading-relaxed line-clamp-2">
@@ -238,7 +238,7 @@ const YouTube = () => {
 
               {/* Video Info Container */}
               <div className="bg-slate-50/50 border border-slate-100 rounded-2xl p-4 sm:p-5">
-                <h3 className="font-serif text-lg sm:text-xl font-extrabold text-[#0c2340] mb-2 leading-tight">
+                <h3 className="font-sans text-lg sm:text-xl font-extrabold text-[#0c2340] mb-2 leading-tight">
                   {selectedVideo.title}
                 </h3>
                 <p className="font-sans text-slate-600 text-xs sm:text-sm leading-relaxed mb-3">

@@ -146,7 +146,7 @@ const Faqs = () => {
         }}
       >
         <div className="bg-white border border-slate-100 p-8 shadow-lg rounded-[32px] max-w-md w-full text-center">
-          <p className="font-serif text-2xl font-extrabold text-[#0c2340] mb-2">Error Loading FAQs</p>
+          <p className="font-sans text-2xl font-extrabold text-[#0c2340] mb-2">Error Loading FAQs</p>
           <p className="text-slate-500 text-xs sm:text-sm mb-4 leading-relaxed font-sans">{error}</p>
           <button 
             onClick={() => window.location.reload()}
@@ -185,7 +185,7 @@ const Faqs = () => {
             </button>
             
             <div className="flex flex-col items-end pr-4 border-r-2 border-blue-600 leading-tight">
-              <h1 className="font-serif text-2xl md:text-3xl font-extrabold text-[#0c2340]">Frequently Asked Questions</h1>
+              <h1 className="font-sans text-2xl md:text-3xl font-extrabold text-[#0c2340]">Frequently Asked Questions</h1>
               <p className="text-slate-500 text-[10px] sm:text-xs mt-1 font-sans">Answers to common queries about Smart India Hackathon 2026</p>
             </div>
           </div>
@@ -226,7 +226,7 @@ const Faqs = () => {
               className="bg-white border border-slate-100 p-6 shadow-md rounded-[32px] flex flex-col"
               variants={item}
             >
-              <h2 className="font-serif text-xl sm:text-2xl font-extrabold text-[#0c2340] mb-4">
+              <h2 className="font-sans text-xl sm:text-2xl font-extrabold text-[#0c2340] mb-4">
                 {section.title}
               </h2>
               

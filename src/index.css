@@ -3,3 +3,9 @@
 @theme {
   --font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
 }
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+}

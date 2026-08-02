@@ -36,7 +36,7 @@ const Schedule = () => {
           </button>
           
           <div className="flex flex-col items-end pr-4 border-r-2 border-blue-600 leading-tight">
-            <h1 className="font-serif text-2xl md:text-3xl font-extrabold text-[#0c2340]">SIH 2026 Timeline</h1>
+            <h1 className="font-sans text-2xl md:text-3xl font-extrabold text-[#0c2340]">SIH 2026 Timeline</h1>
             <p className="text-slate-500 text-[10px] sm:text-xs mt-1 font-sans">Check the timelines, schedules and important dates</p>
           </div>
         </div>
