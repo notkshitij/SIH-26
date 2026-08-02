@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import backgroundImage from '../assets/background.png';
 
 const Faqs = () => {
   const [faqSections, setFaqSections] = useState([]);
@@ -119,21 +120,37 @@ const Faqs = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-notebook-paper">
-        <div className="w-16 h-16 border-4 border-gray-900 border-t-transparent rounded-full animate-spin"></div>
+      <div 
+        className="min-h-screen flex items-center justify-center font-sans"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.96) 30%, rgba(255, 255, 255, 0.82) 70%, rgba(255, 255, 255, 0.4) 100%), url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'right center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="w-16 h-16 border-4 border-slate-900 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-notebook-paper p-4">
-        <div className="text-gray-900 text-center p-8 border-sketch bg-white/40 max-w-md w-full">
-          <p className="font-serif-elegant text-2xl font-bold mb-2">Error Loading FAQs</p>
-          <p className="text-gray-600 mb-4">{error}</p>
+      <div 
+        className="min-h-screen flex items-center justify-center p-4 font-sans"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.96) 30%, rgba(255, 255, 255, 0.82) 70%, rgba(255, 255, 255, 0.4) 100%), url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'right center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="bg-white border border-slate-100 p-8 shadow-lg rounded-[32px] max-w-md w-full text-center">
+          <p className="font-serif text-2xl font-extrabold text-[#0c2340] mb-2">Error Loading FAQs</p>
+          <p className="text-slate-500 text-xs sm:text-sm mb-4 leading-relaxed font-sans">{error}</p>
           <button 
             onClick={() => window.location.reload()}
-            className="btn-sketch-primary px-6 py-2.5"
+            className="bg-[#0c2340] hover:bg-[#1d4ed8] text-white px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold shadow-md transition-all duration-300 cursor-pointer"
           >
             Retry
           </button>
@@ -143,52 +160,62 @@ const Faqs = () => {
   }
 
   return (
-    <div className="min-h-screen bg-notebook-paper py-12 px-4 sm:px-6 lg:px-8 w-full">
-      <div className="max-w-7xl mx-auto w-full">
+    <div 
+      className="min-h-screen p-4 md:p-8 flex flex-col justify-between overflow-y-auto w-full font-sans"
+      style={{
+        backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.96) 30%, rgba(255, 255, 255, 0.82) 70%, rgba(255, 255, 255, 0.4) 100%), url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'right center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col">
         {/* Header */}
-        <header className="max-w-6xl mx-auto w-full border-b border-sketch-dashed pb-6 mb-12 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <button
-            onClick={() => window.history.back()}
-            className="btn-sketch-secondary p-2.5 inline-flex items-center justify-center"
-            title="Home"
-          >
-            <svg className="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </svg>
-          </button>
-          <div className="text-center sm:text-right">
-            <h1 className="font-serif-elegant text-3xl md:text-4xl font-bold text-gray-900 mb-1">Frequently Asked Questions</h1>
-            <p className="font-handwritten text-lg text-gray-600">Answers to common queries about Smart India Hackathon 2026</p>
+        <header className="w-full pb-4 mb-6">
+          <div className="flex justify-between items-center gap-4">
+            <button
+              onClick={() => window.history.back()}
+              className="bg-white border border-slate-200/80 p-2.5 rounded-2xl shadow-sm hover:shadow-md transition-all text-[#0c2340] cursor-pointer flex items-center justify-center"
+              title="Home"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </button>
+            
+            <div className="flex flex-col items-end pr-4 border-r-2 border-blue-600 leading-tight">
+              <h1 className="font-serif text-2xl md:text-3xl font-extrabold text-[#0c2340]">Frequently Asked Questions</h1>
+              <p className="text-slate-500 text-[10px] sm:text-xs mt-1 font-sans">Answers to common queries about Smart India Hackathon 2026</p>
+            </div>
           </div>
         </header>
 
         {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-12">
+        <div className="max-w-2xl w-full mx-auto mb-8">
           <div className="relative">
             <input
               type="text"
               placeholder="Search questions or answers..."
-              className="w-full px-6 py-3 border-sketch bg-white focus:outline-none text-gray-800 font-sans"
+              className="w-full px-6 py-3 border border-slate-200/80 bg-white focus:outline-none focus:border-blue-500 text-gray-800 rounded-full shadow-sm font-sans pr-12"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <svg
-              className="absolute right-4 top-3.5 h-5 w-5 text-gray-500"
+              className="absolute right-5 top-3.5 h-5 w-5 text-slate-400"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
             >
-              <path
-                fillRule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clipRule="evenodd"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
         </div>
 
         <motion.div 
-          className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start w-full"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full items-start"
           variants={container}
           initial="hidden"
           animate="show"
@@ -196,38 +223,35 @@ const Faqs = () => {
           {filteredSections.map((section, sectionIndex) => (
             <motion.div 
               key={sectionIndex} 
-              className="bg-white/40 border-sketch p-6 shadow-sm flex flex-col"
+              className="bg-white border border-slate-100 p-6 shadow-md rounded-[32px] flex flex-col"
               variants={item}
             >
-              <h2 className="font-serif-elegant text-2xl font-bold text-gray-900 mb-6 pb-2 border-b border-sketch-dashed">
+              <h2 className="font-serif text-xl sm:text-2xl font-extrabold text-[#0c2340] mb-6 pb-3 border-b border-slate-100">
                 {section.title}
               </h2>
               
               <div className="flex-grow flex flex-col">
-                <div className="space-y-4 flex-grow">
-                  {section.items.slice(0, expandedSections[sectionIndex] ? section.items.length : Math.min(visibleQuestions, section.items.length)).map((faq, index) => {
+                <div className="space-y-3 flex-grow">
+                  {section.items.map((faq, index) => {
                     const uniqueId = `${sectionIndex}-${index}`;
                     const isActive = activeIndex === uniqueId;
                     
                     return (
                       <motion.div 
                         key={uniqueId}
-                        className="bg-white/60 border-sketch-thin overflow-hidden"
+                        className="bg-slate-50/50 hover:bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden transition-all duration-200"
                         variants={item}
                       >
                         <button
-                          className="w-full px-6 py-4 text-left flex justify-between items-center transition-colors hover:bg-black/5"
+                          className="w-full px-5 py-3.5 text-left flex justify-between items-center transition-colors cursor-pointer"
                           onClick={() => toggleFaq(uniqueId)}
                         >
-                          <span className="font-handwritten text-lg font-bold text-gray-800 pr-4">
+                          <span className="font-sans text-xs sm:text-sm font-semibold text-slate-800 pr-4 leading-normal">
                             {faq.question}
                           </span>
-                          <motion.span
-                            animate={{ rotate: isActive ? 180 : 0 }}
-                            className="flex-shrink-0 text-gray-600"
-                          >
-                            ▼
-                          </motion.span>
+                          <svg className={`w-3.5 h-3.5 text-slate-400 transform transition-transform duration-200 flex-shrink-0 ${isActive ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
                         </button>
                         
                         <AnimatePresence>
@@ -239,7 +263,7 @@ const Faqs = () => {
                               transition={{ duration: 0.2 }}
                               className="overflow-hidden"
                             >
-                              <div className="p-6 pt-2 text-gray-600 whitespace-pre-line border-t border-sketch-dashed mt-2 leading-relaxed text-sm md:text-base">
+                              <div className="px-5 pb-4 text-slate-600 border-t border-slate-100/80 pt-2 leading-relaxed text-xs sm:text-sm font-sans whitespace-pre-line">
                                 {faq.answer}
                               </div>
                             </motion.div>
@@ -249,60 +273,11 @@ const Faqs = () => {
                     );
                   })}
                 </div>
-                
-                {section.items.length > visibleQuestions && !expandedSections[sectionIndex] ? (
-                  <div className="mt-4">
-                    <button
-                      onClick={() => toggleSection(sectionIndex)}
-                      className="w-full btn-sketch-secondary py-3 text-center"
-                    >
-                      View {section.items.length - visibleQuestions} more questions
-                    </button>
-                  </div>
-                ) : expandedSections[sectionIndex] ? (
-                  <div className="mt-4">
-                    <button
-                      onClick={() => toggleSection(sectionIndex)}
-                      className="w-full btn-sketch-secondary py-3 text-center"
-                    >
-                      Show Less
-                    </button>
-                  </div>
-                ) : null}
               </div>
             </motion.div>
           ))}
         </motion.div>
       </div>
-      
-      {/* Footer Section */}
-      <footer className="mt-8 max-w-2xl mx-auto w-full">
-        <div className="bg-white/40 border-sketch-thin p-4 text-center shadow-sm">
-          <p className="font-handwritten text-gray-600 text-xs md:text-sm">
-            Organized by Poornima University in association with Smart India Hackathon
-          </p>
-          <p className="font-handwritten text-gray-700 text-xs mt-1 font-bold">
-            Developed by{' '}
-            <a 
-              href="https://www.linkedin.com/in/kshitijjain-dev/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:underline cursor-pointer hover:text-black transition-colors"
-            >
-              Kshitij Jain
-            </a>
-            {' '}&{' '}
-            <a 
-              href="https://www.linkedin.com/in/manvendra-singh-ab88b3330/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:underline cursor-pointer hover:text-black transition-colors"
-            >
-              Manvendra Singh
-            </a>
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };

@@ -99,7 +99,7 @@ const YouTube = () => {
   };
 
   return (
-    <div className="min-h-screen bg-notebook-paper py-8 md:py-12 px-4 sm:px-6 lg:px-8 w-full">
+    <div className="min-h-screen bg-custom-layout py-8 md:py-12 px-4 sm:px-6 lg:px-8 w-full">
       <motion.div
         className="max-w-6xl mx-auto w-full"
         variants={containerVariants}
