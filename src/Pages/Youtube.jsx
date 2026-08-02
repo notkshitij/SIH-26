@@ -30,39 +30,39 @@ const itemVariants = {
 const videoData = [
   {
     id: 1,
-    title: "Smart India Hackathon 2024 Official Trailer",
-    description: "Get ready for SIH 2026 with this official guide showcasing innovation, problem solving and registration guidelines.",
-    videoId: "33BR5Vhcfcc",
-    duration: "2:30",
-    date: "Jan 15, 2024",
-    views: "2.4M"
+    title: "How to Win Smart India Hackathon 2026 | Complete Roadmap",
+    description: "A comprehensive step-by-step roadmap from registration to Grand Finale, team strategies, and judging details.",
+    videoId: "FCxNZzLpIZg",
+    duration: "18:42",
+    date: "Jul 28, 2026",
+    views: "125K"
   },
   {
     id: 2,
-    title: "Smart India Hackathon 2023 Grand Finale Highlights",
-    description: "Experience the grand finale of SIH 2023 with key highlights and winning team project presentations.",
-    videoId: "WMgLFxewZ1Y",
-    duration: "12:34",
-    date: "Aug 15, 2023",
-    views: "1.2M"
+    title: "SIH 2026 Registration, Rules & Complete Roadmap | Episode 1",
+    description: "Learn the registration process, official team guidelines, college SPOC registration details, and the full timeline.",
+    videoId: "cacsJgim5AA",
+    duration: "25:10",
+    date: "Jul 29, 2026",
+    views: "98K"
   },
   {
     id: 3,
-    title: "How to Win at SIH: Pro Tips & Strategy Guide",
-    description: "Learn winning presentation strategies and presentation deck tips directly from past SIH national winners.",
-    videoId: "_S97ArKlWYQ",
-    duration: "15:45",
-    date: "Sep 01, 2023",
-    views: "856K"
+    title: "SIH 2026 Team Formation Guide: Build the PERFECT Team | Episode 2",
+    description: "Strategic advice on selecting the perfect team members, role distribution, assignment of responsibilities, and avoiding key mistakes.",
+    videoId: "sLm99eQVR0g",
+    duration: "19:15",
+    date: "Jul 31, 2026",
+    views: "112K"
   },
   {
     id: 4,
-    title: "SIH Top Project Showcase & Innovation Gallery",
-    description: "Top innovative hardware and software prototype solutions from Smart India Hackathon finalists.",
-    videoId: "nd4bBknAltk",
-    duration: "18:22",
-    date: "Aug 20, 2023",
-    views: "2.1M"
+    title: "How to Choose the RIGHT Problem Statement for SIH 2026 | Episode 3",
+    description: "Detailed framework on evaluating and selecting the best Central/State government or PSU problem statements for your team.",
+    videoId: "XRcmS7VtGoo",
+    duration: "21:40",
+    date: "Aug 02, 2026",
+    views: "84K"
   },
   {
     id: 5,
