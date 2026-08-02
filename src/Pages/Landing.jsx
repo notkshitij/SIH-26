@@ -224,7 +224,7 @@ const DesktopLanding = ({ navigate }) => {
             className="mb-4"
           >
             <a
-              href="https://docs.google.com/forms/d/1wlgQvyCGKRkThI-G9CrMJyzzDPQ94_8owlLaXiPATB0/previewResponse"
+              href="https://forms.gle/7sUyZc4SB2iepnKb9"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#0c2340] hover:bg-[#1d4ed8] text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-md transition-all duration-300 inline-flex items-center gap-2 cursor-pointer group"
