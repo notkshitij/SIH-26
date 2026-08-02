@@ -138,7 +138,11 @@ const DesktopLanding = ({ navigate }) => {
       {/* Header */}
       <header className="max-w-[1440px] mx-auto w-full flex justify-between items-center py-2 px-4 sm:px-6">
         <div className="flex items-center gap-3 sm:gap-4 cursor-pointer select-none" onClick={() => handleNavigation('/')}>
-          <img src={logoImage} alt="Poornima University Logo" className="w-10 h-10 sm:w-14 sm:h-14 object-contain" />
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <img src={logoImage} alt="SIH Poornima Logo" className="w-10 h-10 sm:w-14 sm:h-14 object-contain" />
+            <span className="text-slate-400 font-bold text-sm sm:text-4xl">×</span>
+            <img src="/images/pu_logo.png" alt="Poornima University Logo" className="w-9 h-9 sm:w-12 sm:h-12 object-contain" />
+          </div>
           <div className="flex flex-col items-start leading-none">
             <span className="text-[9px] sm:text-xs font-bold text-slate-500 tracking-wider font-sans uppercase">
               SIH 2026
@@ -432,7 +436,11 @@ const MobileLanding = ({ navigate }) => {
       {/* Header */}
       <header className="w-full flex justify-between items-center py-2 px-1 mb-6">
         <div className="flex items-center gap-2 cursor-pointer select-none" onClick={() => handleNavigation('/')}>
-          <img src={logoImage} alt="Poornima University Logo" className="w-8 h-8 object-contain" />
+          <div className="flex items-center gap-1.5">
+            <img src={logoImage} alt="SIH Poornima Logo" className="w-8 h-8 object-contain" />
+            <span className="text-slate-400 font-bold text-xs">×</span>
+            <img src="/images/pu_logo.png" alt="Poornima University Logo" className="w-7 h-7 object-contain" />
+          </div>
           <div className="flex flex-col items-start leading-none font-sans">
             <span className="text-[7px] font-bold text-slate-500 tracking-wider uppercase">
               SIH 2026
