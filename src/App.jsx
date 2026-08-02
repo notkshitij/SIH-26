@@ -7,8 +7,8 @@ import Faqs from './Pages/Faqs';
 import Template from './Pages/Template';
 import Dashboard from './Pages/Dashboard';
 import YouTube from './Pages/Youtube';
-import Register from './Pages/Register';
 import './App.css';
+
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -134,10 +134,7 @@ function App() {
           path="/template" 
           element={<Template />} 
         />
-        <Route 
-          path="/register" 
-          element={<Register />} 
-        />
+
         <Route 
           path="/youtube" 
           element={<YouTube />} 

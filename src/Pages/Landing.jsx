@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import backgroundImage from '../assets/background.png';
+import logoImage from '../assets/Poornima-Sih.png';
+
 
 // Animation variants
 const containerVariants = {
@@ -123,7 +125,7 @@ const DesktopLanding = ({ navigate }) => {
 
   return (
     <div 
-      className={`min-h-screen lg:h-screen w-full p-3 md:p-6 lg:px-12 flex flex-col justify-between overflow-y-auto lg:overflow-hidden relative ${isMounted ? 'opacity-100' : 'opacity-0'}`} 
+      className={`min-h-screen w-full p-3 md:p-6 lg:px-12 flex flex-col justify-between overflow-y-auto relative ${isMounted ? 'opacity-100' : 'opacity-0'}`} 
       style={{ 
         backgroundImage: `url(${backgroundImage})`, 
         backgroundSize: 'cover', 
@@ -135,22 +137,38 @@ const DesktopLanding = ({ navigate }) => {
       {/* Header */}
       <header className="max-w-[1440px] mx-auto w-full flex justify-between items-center py-2 px-4 sm:px-6">
         <div className="flex items-center gap-3 sm:gap-4 cursor-pointer select-none" onClick={() => handleNavigation('/')}>
-          <img src="/images/pu_logo.png" alt="Poornima University Logo" className="w-10 h-10 sm:w-14 sm:h-14 object-contain" />
+          <img src={logoImage} alt="Poornima University Logo" className="w-10 h-10 sm:w-14 sm:h-14 object-contain" />
           <div className="flex flex-col items-start leading-none">
             <span className="text-[9px] sm:text-xs font-bold text-slate-500 tracking-wider font-sans uppercase">
-              Poornima University
+              SIH 2026
             </span>
             <span className="text-lg sm:text-2xl font-black text-[#0c2340] tracking-tight font-sans uppercase mt-0.5">
-              Internal Hackathon
+              Internal Selection
             </span>
             <div className="flex flex-col items-start mt-0.5">
               <span className="text-lg sm:text-2xl font-black text-[#1d4ed8] tracking-tight font-sans uppercase">
-                2026 (SIH)
+                Poornima University
               </span>
               <div className="w-12 h-[2.5px] bg-[#1d4ed8] mt-0.5 rounded-full"></div>
             </div>
           </div>
         </div>
+
+        {/* Top-Right: Unique pulsing Video Guides button */}
+        <button
+          onClick={() => handleNavigation('/youtube')}
+          className="bg-blue-50/80 hover:bg-blue-100/90 text-blue-600 border border-blue-100/80 px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-bold transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-sm hover:shadow active:scale-95"
+        >
+          <span className="flex h-2 w-2 relative">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+          </span>
+          <svg className="w-3.5 h-3.5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3" />
+          </svg>
+          <span className="hidden sm:inline">Watch Demo Guides</span>
+          <span className="sm:hidden">Demo Guides</span>
+        </button>
       </header>
 
       {/* Main / Hero Content */}
@@ -164,16 +182,25 @@ const DesktopLanding = ({ navigate }) => {
           {/* Badge */}
           <motion.div 
             variants={itemVariants}
-            className="bg-white/80 border border-slate-200/60 rounded-full px-3.5 py-1 text-[10px] sm:text-xs font-semibold text-slate-700 flex items-center gap-1.5 shadow-sm w-fit mb-4"
+            className="bg-white border border-slate-200/80 rounded-full px-4 py-2 text-[10px] sm:text-xs font-semibold text-[#0c2340] flex items-center gap-2 shadow-sm w-fit mb-4"
           >
-            <span role="img" aria-label="lightbulb">💡</span>
+            <svg className="w-4.5 h-4.5 text-blue-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .3 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+              <path d="M9 18h6" />
+              <path d="M10 22h4" />
+              <path d="M12 2v2" />
+              <path d="M4.93 4.93l1.41 1.41" />
+              <path d="M20 12h-2" />
+              <path d="M6 12H4" />
+              <path d="M19.07 4.93l-1.41 1.41" />
+            </svg>
             <span>For Product Builders & Problem Solvers doing SIH 2026</span>
           </motion.div>
 
           {/* Heading */}
           <motion.h1 
             variants={itemVariants}
-            className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0c2340] leading-tight mb-2.5 tracking-tight max-w-xl font-sans"
+            className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0c2340] leading-tight mb-2.5 tracking-tight max-w-xl font-sans"
           >
             Where Great Teams Build Extraordinary <span className="text-[#1d4ed8]">Solutions</span>.
           </motion.h1>
@@ -183,7 +210,7 @@ const DesktopLanding = ({ navigate }) => {
             variants={itemVariants}
             className="text-slate-600 text-xs sm:text-sm mb-5 max-w-md leading-relaxed font-sans"
           >
-            Join India's largest hackathon initiative to solve real-world problems. Prepare templates, browse problem statements, view timelines, and submit your entries.
+            Everything you need for Smart India Hackathon 2026. Access official resources, browse problem statements, track important dates, and prepare your team for success.
           </motion.p>
 
           {/* CTA Button */}
@@ -191,9 +218,11 @@ const DesktopLanding = ({ navigate }) => {
             variants={itemVariants}
             className="mb-4"
           >
-            <button
-              onClick={() => handleNavigation('/register')}
-              className="bg-[#0c2340] hover:bg-[#1d4ed8] text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-md transition-all duration-300 flex items-center gap-2 cursor-pointer group"
+            <a
+              href="https://docs.google.com/forms/d/1wlgQvyCGKRkThI-G9CrMJyzzDPQ94_8owlLaXiPATB0/previewResponse"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#0c2340] hover:bg-[#1d4ed8] text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-md transition-all duration-300 inline-flex items-center gap-2 cursor-pointer group"
             >
               <svg className="w-3.5 h-3.5 text-white transform rotate-45 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13" />
@@ -201,7 +230,7 @@ const DesktopLanding = ({ navigate }) => {
               </svg>
               <span>Apply for your team registration</span>
               <span className="transform group-hover:translate-x-1 transition-transform duration-200 ml-1">→</span>
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </main>
@@ -245,24 +274,7 @@ const DesktopLanding = ({ navigate }) => {
         <div className="bg-white/95 border border-slate-200/80 rounded-2xl p-3 sm:p-4 shadow-md flex flex-col lg:flex-row justify-between items-center gap-4 w-full max-w-[1000px]">
           {/* Left Side: Logo & Organized By */}
           <div className="flex items-center gap-3">
-            <div className="text-[#0c2340] flex-shrink-0">
-              <svg className="w-10 h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M24 10L6 18L24 26L42 18L24 10Z" fill="#0c2340" stroke="#0c2340" />
-                <path d="M12 21.5V30C12 33 16.5 36 24 36C31.5 36 36 33 36 30V21.5" stroke="#0c2340" />
-                <path d="M38 18V27.5" stroke="#0c2340" />
-                <circle cx="38" cy="28.5" r="1.5" fill="#0c2340" stroke="none" />
-                <path d="M8 36C5.5 31.5 5 25.5 8 20" stroke="#0c2340" />
-                <path d="M8 20L6 18" stroke="#0c2340" />
-                <path d="M7 25L4 24" stroke="#0c2340" />
-                <path d="M8 30L5 30" stroke="#0c2340" />
-                <path d="M9 35L6 36" stroke="#0c2340" />
-                <path d="M40 36C42.5 31.5 43 25.5 40 20" stroke="#0c2340" />
-                <path d="M40 20L42 18" stroke="#0c2340" />
-                <path d="M41 25L44 24" stroke="#0c2340" />
-                <path d="M40 30L43 30" stroke="#0c2340" />
-                <path d="M39 35L42 36" stroke="#0c2340" />
-              </svg>
-            </div>
+            <img src="/images/pu_logo.png" alt="Poornima University Logo" className="w-10 h-10 object-contain flex-shrink-0" />
             <div className="flex flex-col text-left leading-tight">
               <span className="font-bold text-slate-800 text-[10px] sm:text-xs font-sans">
                 Organized by Poornima University
