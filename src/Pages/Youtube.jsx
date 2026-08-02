@@ -75,12 +75,12 @@ const videoData = [
   },
   {
     id: 6,
-    title: "SIH 2026 Problem Statements Breakdown & Selection",
-    description: "Detailed analysis and walkthrough on how to choose the right problem statement for your team.",
-    videoId: "dNe-3Uk4o_c",
-    duration: "22:15",
-    date: "Aug 25, 2023",
-    views: "1.5M"
+    title: "Decode SIH 2026 EP2 - Choose the Right Problem Statement",
+    description: "Learn how to approach problem statements with a PM lens, evaluate real user needs, validate workflows, and avoid technical pitfalls.",
+    videoId: "5pOi7WyLiY0",
+    duration: "24:12",
+    date: "Aug 02, 2026",
+    views: "64K"
   }
 ];
 
