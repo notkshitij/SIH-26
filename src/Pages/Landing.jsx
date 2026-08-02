@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
 import backgroundImage from '../assets/background.png';
 
@@ -10,8 +9,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // slightly longer stagger for a clear chain-reaction look
-      delayChildren: 0.2
+      staggerChildren: 0.15,
+      delayChildren: 0.1
     }
   }
 };
@@ -22,121 +21,23 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.4,
       ease: "easeOut"
     }
   }
 };
 
 const cardDropVariants = {
-  hidden: { y: -350, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
     transition: {
       type: "spring",
-      stiffness: 110, // slower, smoother spring action
-      damping: 14,   // pleasant soft bounce
-      mass: 1.0      // realistic weight
+      stiffness: 100,
+      damping: 15
     }
   }
-};
-
-const buttonHover = {
-  scale: 1.03,
-  transition: { type: "spring", stiffness: 400, damping: 10 }
-};
-
-const buttonTap = { scale: 0.98 };
-
-// Hand-drawn SVGs
-const SketchedFunnel = () => (
-  <svg className="w-24 h-24 text-gray-800 opacity-90 hidden lg:block flex-shrink-0" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    {/* Rough sketchy path of a funnel */}
-    <path d="M15 15 C 20 12, 80 12, 85 15 C 80 25, 55 45, 55 65 C 53 72, 47 72, 45 65 C 45 45, 20 25, 15 15" />
-    <path d="M18 20 C 35 17, 65 17, 82 20" />
-    <path d="M30 35 C 40 32, 60 32, 70 35" />
-    <path d="M45 65 L 45 85 C 45 87, 43 89, 40 89 L 35 89 C 32 89, 30 87, 30 85" />
-    <path d="M55 65 L 55 75" />
-    {/* Sketchy shadow lines */}
-    <line x1="25" y1="20" x2="35" y2="28" />
-    <line x1="28" y1="22" x2="38" y2="30" />
-    <line x1="32" y1="25" x2="42" y2="32" />
-  </svg>
-);
-
-const SketchedRocket = () => (
-  <svg className="w-24 h-24 text-gray-800 opacity-90 hidden lg:block flex-shrink-0 animate-pulse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    {/* Sketched rocket body */}
-    <path d="M50 15 C 60 25, 65 45, 60 65 L 40 65 C 35 45, 40 25, 50 15 Z" />
-    {/* Nose cone */}
-    <path d="M45 27 C 50 22, 50 22, 55 27" />
-    {/* Wings */}
-    <path d="M40 55 L 25 65 C 23 66, 25 70, 30 68 L 40 63" />
-    <path d="M60 55 L 75 65 C 77 66, 75 70, 70 68 L 60 63" />
-    {/* Fins / Booster */}
-    <path d="M45 65 L 43 75 L 57 75 L 55 65" />
-    {/* Flames / thrust lines */}
-    <path d="M46 78 C 47 88, 49 85, 50 90 C 51 85, 53 88, 54 78" />
-    <line x1="42" y1="78" x2="38" y2="85" />
-    <line x1="58" y1="78" x2="62" y2="85" />
-  </svg>
-);
-
-const SketchedOval = ({ children, colorClass = "text-blue-600/80" }) => (
-  <div className="relative inline-flex items-center justify-center py-1 sm:py-2 px-3 sm:px-6 min-h-[45px] sm:min-h-[60px]">
-    <span className="font-handwritten text-base sm:text-xl md:text-2xl font-bold text-gray-900 relative z-10">{children}</span>
-    <svg className={`absolute inset-0 w-full h-full ${colorClass}`} viewBox="0 0 110 50" preserveAspectRatio="none" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      {/* Sketched hand-drawn double loop oval */}
-      <path d="M 12 25 C 12 10, 98 8, 98 25 C 98 40, 18 40, 15 27 C 12 18, 92 14, 88 25" />
-    </svg>
-  </div>
-);
-
-const MobileMessage = () => {
-  const [currentEmoji, setCurrentEmoji] = React.useState('💻');
-  const emojis = ['💻', '🚀'];
-  
-  React.useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      index = (index + 1) % emojis.length;
-      setCurrentEmoji(emojis[index]);
-    }, 1500);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="min-h-screen bg-[#ece9e2] p-4 flex items-center justify-center font-sans">
-      <motion.div 
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="bg-notebook-paper border-sketch p-8 max-w-sm w-full text-center shadow-lg relative overflow-hidden"
-      >
-        <motion.div
-          className="text-5xl mb-4 inline-block"
-          animate={{ scale: [1, 1.1, 1], rotate: [0, 10, -5, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          {currentEmoji}
-        </motion.div>
-        
-        <h1 className="font-serif-elegant text-2xl font-bold text-gray-900 mb-4">
-          Desktop Required
-        </h1>
-        
-        <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-          For the best experience, please access this platform from a desktop or laptop computer. The Smart India Hackathon platform is optimized for larger screens to provide you with all required tools.
-        </p>
-
-        <div className="border-sketch-dashed p-4 text-left bg-white/40 text-xs text-gray-700">
-          <p className="font-bold mb-1">Why desktop?</p>
-          The portal contains complex problem statements, template downloads, and event timelines that are best reviewed on larger screens.
-        </div>
-      </motion.div>
-    </div>
-  );
 };
 
 const DesktopLanding = ({ navigate }) => {
@@ -150,7 +51,7 @@ const DesktopLanding = ({ navigate }) => {
     } else {
       const timer = setTimeout(() => {
         setShouldAnimate(true);
-      }, 3200); // Wait for the 2.8s splash + 0.4s fadeout
+      }, 3200); // Wait for splash screen
       return () => clearTimeout(timer);
     }
   }, []);
@@ -159,204 +60,269 @@ const DesktopLanding = ({ navigate }) => {
     navigate(path);
   };
 
-  return (
-    <div className={`min-h-screen lg:h-screen w-full p-4 md:p-8 flex flex-col justify-between overflow-y-auto lg:overflow-hidden relative ${isMounted ? 'opacity-100' : 'opacity-0'}`} style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', transition: 'opacity 300ms ease-in-out' }}>
-      
-      {/* Decorative Grid Line Borders on all sides */}
-      <div className="absolute top-0 left-0 right-0 h-1 border-b border-sketch-dashed opacity-25 z-50"></div>
-      <div className="absolute bottom-0 left-0 right-0 h-1 border-t border-sketch-dashed opacity-25 z-50"></div>
-      <div className="absolute top-0 bottom-0 left-0 w-1 border-r border-sketch-dashed opacity-25 z-50"></div>
-      <div className="absolute top-0 bottom-0 right-0 w-1 border-l border-sketch-dashed opacity-25 z-50"></div>
+  const cards = [
+    {
+      title: "Problem Statements",
+      desc: "Browse through various problem statements from sectors",
+      onClick: () => handleNavigation('/dashboard'),
+      icon: (
+        <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+          <line x1="10" y1="9" x2="8" y2="9" />
+        </svg>
+      )
+    },
+    {
+      title: "SIH PPT Template",
+      desc: "Download the official SIH presentation template",
+      onClick: () => handleNavigation('/template'),
+      icon: (
+        <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <rect x="8" y="11" width="8" height="6" rx="1" />
+          <text x="9.5" y="15" fontSize="4.5" fontWeight="black" fontFamily="sans-serif" fill="currentColor" stroke="none">PPT</text>
+        </svg>
+      )
+    },
+    {
+      title: "Event Schedule",
+      desc: "Check the timelines, schedules and important dates",
+      onClick: () => handleNavigation('/schedule'),
+      icon: (
+        <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+          <circle cx="8" cy="14" r="0.75" fill="currentColor" />
+          <circle cx="12" cy="14" r="0.75" fill="currentColor" />
+          <circle cx="16" cy="14" r="0.75" fill="currentColor" />
+          <circle cx="8" cy="18" r="0.75" fill="currentColor" />
+          <circle cx="12" cy="18" r="0.75" fill="currentColor" />
+          <circle cx="16" cy="18" r="0.75" fill="currentColor" />
+        </svg>
+      )
+    },
+    {
+      title: "FAQs",
+      desc: "Find quick answers to common questions about the hackathon",
+      onClick: () => handleNavigation('/faqs'),
+      icon: (
+        <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="4" width="18" height="12" rx="2" />
+          <path d="M7 16l-4 4v-4" />
+          <text x="7" y="11.5" fontSize="5.5" fontWeight="black" fontFamily="sans-serif" fill="currentColor" stroke="none">Q&A</text>
+        </svg>
+      )
+    }
+  ];
 
-        <header className="max-w-7.5xl mx-auto w-full flex flex-col lg:flex-row justify-between items-center gap-4 py-3 mb-4">
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
-            <div className="flex items-center gap-3 cursor-pointer select-none" onClick={() => handleNavigation('/')}>
-              <img src="/images/pu_logo.png" alt="Poornima University Logo" className="w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-sm" />
-              <span className="font-handwritten text-lg sm:text-xl md:text-2xl font-extrabold text-gray-900 tracking-tight leading-normal flex items-center">
-                POORNIMA UNIVERSITY INTERNAL HACKATHON 2026 (SIH)
+  return (
+    <div 
+      className={`min-h-screen lg:h-screen w-full p-3 md:p-6 lg:px-12 flex flex-col justify-between overflow-y-auto lg:overflow-hidden relative ${isMounted ? 'opacity-100' : 'opacity-0'}`} 
+      style={{ 
+        backgroundImage: `url(${backgroundImage})`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'right center', 
+        backgroundRepeat: 'no-repeat', 
+        transition: 'opacity 300ms ease-in-out' 
+      }}
+    >
+      {/* Header */}
+      <header className="max-w-[1440px] mx-auto w-full flex justify-between items-center py-2 px-4 sm:px-6">
+        <div className="flex items-center gap-3 sm:gap-4 cursor-pointer select-none" onClick={() => handleNavigation('/')}>
+          <img src="/images/pu_logo.png" alt="Poornima University Logo" className="w-10 h-10 sm:w-14 sm:h-14 object-contain" />
+          <div className="flex flex-col items-start leading-none">
+            <span className="text-[9px] sm:text-xs font-bold text-slate-500 tracking-wider font-sans uppercase">
+              Poornima University
+            </span>
+            <span className="text-lg sm:text-2xl font-black text-[#0c2340] tracking-tight font-sans uppercase mt-0.5">
+              Internal Hackathon
+            </span>
+            <div className="flex flex-col items-start mt-0.5">
+              <span className="text-lg sm:text-2xl font-black text-[#1d4ed8] tracking-tight font-sans uppercase">
+                2026 (SIH)
+              </span>
+              <div className="w-12 h-[2.5px] bg-[#1d4ed8] mt-0.5 rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main / Hero Content */}
+      <main className="flex-1 flex flex-col items-start justify-center py-4 px-4 sm:px-6 max-w-[1440px] mx-auto w-full">
+        <motion.div 
+          className="max-w-2xl text-left flex flex-col items-start"
+          initial="hidden"
+          animate={shouldAnimate ? "visible" : "hidden"}
+          variants={containerVariants}
+        >
+          {/* Badge */}
+          <motion.div 
+            variants={itemVariants}
+            className="bg-white/80 border border-slate-200/60 rounded-full px-3.5 py-1 text-[10px] sm:text-xs font-semibold text-slate-700 flex items-center gap-1.5 shadow-sm w-fit mb-4"
+          >
+            <span role="img" aria-label="lightbulb">💡</span>
+            <span>For Product Builders & Problem Solvers doing SIH 2026</span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1 
+            variants={itemVariants}
+            className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0c2340] leading-tight mb-2.5 tracking-tight max-w-xl font-sans"
+          >
+            Where Great Teams Build Extraordinary <span className="text-[#1d4ed8]">Solutions</span>.
+          </motion.h1>
+
+          {/* Paragraph */}
+          <motion.p 
+            variants={itemVariants}
+            className="text-slate-600 text-xs sm:text-sm mb-5 max-w-md leading-relaxed font-sans"
+          >
+            Join India's largest hackathon initiative to solve real-world problems. Prepare templates, browse problem statements, view timelines, and submit your entries.
+          </motion.p>
+
+          {/* CTA Button */}
+          <motion.div 
+            variants={itemVariants}
+            className="mb-4"
+          >
+            <button
+              onClick={() => handleNavigation('/register')}
+              className="bg-[#0c2340] hover:bg-[#1d4ed8] text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-md transition-all duration-300 flex items-center gap-2 cursor-pointer group"
+            >
+              <svg className="w-3.5 h-3.5 text-white transform rotate-45 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              <span>Apply for your team registration</span>
+              <span className="transform group-hover:translate-x-1 transition-transform duration-200 ml-1">→</span>
+            </button>
+          </motion.div>
+        </motion.div>
+      </main>
+
+      {/* Cards Section */}
+      <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 mb-4 flex justify-center">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-[1000px]"
+          initial="hidden"
+          animate={shouldAnimate ? "visible" : "hidden"}
+          variants={containerVariants}
+        >
+          {cards.map((card, idx) => (
+            <motion.div
+              key={idx}
+              variants={cardDropVariants}
+              onClick={card.onClick}
+              whileHover={{ y: -4, boxShadow: "0 8px 12px -3px rgba(0, 0, 0, 0.05), 0 3px 4px -2px rgba(0, 0, 0, 0.05)" }}
+              className="bg-white border border-slate-200/50 p-4 lg:p-5 flex flex-col items-center text-center justify-between rounded-2xl shadow-sm cursor-pointer select-none min-h-[180px] lg:min-h-[190px] group"
+            >
+              <div className="flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-blue-50/70 flex items-center justify-center mb-3">
+                  {card.icon}
+                </div>
+                <h3 className="font-bold text-[#0c2340] text-xs sm:text-sm md:text-base mb-1 font-sans">{card.title}</h3>
+                <p className="text-slate-500 text-[10px] sm:text-xs leading-relaxed mb-3 font-sans">{card.desc}</p>
+              </div>
+              <div className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-blue-500 hover:border-blue-500 hover:bg-blue-50 transition-all duration-300">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 mb-3 mt-auto flex justify-center">
+        <div className="bg-white/95 border border-slate-200/80 rounded-2xl p-3 sm:p-4 shadow-md flex flex-col lg:flex-row justify-between items-center gap-4 w-full max-w-[1000px]">
+          {/* Left Side: Logo & Organized By */}
+          <div className="flex items-center gap-3">
+            <div className="text-[#0c2340] flex-shrink-0">
+              <svg className="w-10 h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M24 10L6 18L24 26L42 18L24 10Z" fill="#0c2340" stroke="#0c2340" />
+                <path d="M12 21.5V30C12 33 16.5 36 24 36C31.5 36 36 33 36 30V21.5" stroke="#0c2340" />
+                <path d="M38 18V27.5" stroke="#0c2340" />
+                <circle cx="38" cy="28.5" r="1.5" fill="#0c2340" stroke="none" />
+                <path d="M8 36C5.5 31.5 5 25.5 8 20" stroke="#0c2340" />
+                <path d="M8 20L6 18" stroke="#0c2340" />
+                <path d="M7 25L4 24" stroke="#0c2340" />
+                <path d="M8 30L5 30" stroke="#0c2340" />
+                <path d="M9 35L6 36" stroke="#0c2340" />
+                <path d="M40 36C42.5 31.5 43 25.5 40 20" stroke="#0c2340" />
+                <path d="M40 20L42 18" stroke="#0c2340" />
+                <path d="M41 25L44 24" stroke="#0c2340" />
+                <path d="M40 30L43 30" stroke="#0c2340" />
+                <path d="M39 35L42 36" stroke="#0c2340" />
+              </svg>
+            </div>
+            <div className="flex flex-col text-left leading-tight">
+              <span className="font-bold text-slate-800 text-[10px] sm:text-xs font-sans">
+                Organized by Poornima University
+              </span>
+              <span className="text-slate-500 text-[9px] sm:text-[10px] font-sans">
+                in association with Smart India Hackathon
               </span>
             </div>
-            
           </div>
 
-          {/* Navigation Links */}
-          <nav className="flex flex-wrap items-center justify-center gap-6 md:gap-8 font-handwritten text-base font-bold text-gray-700">
-            <span onClick={() => handleNavigation('/dashboard')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5 flex items-center">
-              Problem Statements
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-200"></span>
+          {/* Vertical divider line after left block */}
+          <div className="hidden lg:block w-[1px] h-8 bg-slate-200"></div>
+
+          {/* Middle Side: Certificate Notice */}
+          <div className="flex-1 flex items-center justify-center py-1 text-center">
+            <span className="text-[10px] sm:text-xs font-semibold text-blue-600 bg-blue-50/60 rounded-full px-4 py-1.5 border border-blue-100 flex items-center gap-1.5 font-sans animate-pulse">
+              🎓 You can also download your SIH Internal certificates from this portal. Stay tuned!
             </span>
-            <span onClick={() => handleNavigation('/template')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5 flex items-center">
-              PPT Template
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-200"></span>
-            </span>
-            <span onClick={() => handleNavigation('/schedule')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5 flex items-center">
-              Event Schedule
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-200"></span>
-            </span>
-            <span onClick={() => handleNavigation('/faqs')} className="hover:text-black cursor-pointer transition-colors relative group py-0.5 flex items-center">
-              FAQs
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-200"></span>
-            </span>
-          </nav>
-           {/* Header CTA */}
-          <div className="flex items-center justify-center">
-            <button
-              onClick={() => handleNavigation('/youtube')}
-              className="btn-sketch-secondary px-4 py-1.5 text-xs flex items-left gap-1.5"
-            >
-              Watch Guide 🎬
-            </button>
           </div>
-        </header>
-        
 
-        {/* Hero Section */}
-        <main className="flex-1 flex flex-col items-center justify-center py-2 max-w-6xl mx-auto w-full">
-          <motion.div
-            className="w-full flex flex-col lg:flex-row gap-4 items-center justify-between"
-            initial="hidden"
-            animate={shouldAnimate ? "visible" : "hidden"}
-            variants={containerVariants}
-          >
-            {/* Left Sketched Drawing */}
-            <motion.div variants={itemVariants} className="flex-1 flex justify-center">
-              <SketchedFunnel />
-            </motion.div>
+          {/* Vertical divider line before right block */}
+          <div className="hidden lg:block w-[1px] h-8 bg-slate-200"></div>
 
-            {/* Main Text Content */}
-            <motion.div className="w-full lg:w-3/5 text-center flex flex-col items-center" variants={itemVariants}>
-              {/* Badge subtitle */}
-              <div className="font-handwritten text-sm md:text-base border-sketch px-4 py-1.5 inline-block bg-white/40 mb-4 shadow-sm transform -rotate-1 select-none">
-                for product builders & problem solvers doing SIH 2026
-              </div>
-
-              {/* Elegant Editorial Serif Heading */}
-              <h1 className="font-serif-elegant text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4 max-w-3xl">
-                Where Great Teams Build Extraordinary Solutions.
-              </h1>
-
-              {/* Body Text */}
-              <p className="text-gray-600 text-sm md:text-base mb-6 max-w-xl leading-relaxed">
-                Join India's largest hackathon initiative to solve real-world problems. Prepare templates, browse problem statements, view timelines, and submit your entries.
-              </p>
-
-              {/* Main CTA Button styled like a sketching border */}
-              <motion.div whileHover={buttonHover} whileTap={buttonTap} className="mb-3">
-                <button
-                  onClick={() => handleNavigation('/register')}
-                  className="btn-sketch-primary px-8 py-3 text-base md:text-lg inline-flex items-center gap-2 select-none shadow-md group cursor-pointer"
-                >
-                  Apply for your team registration
-                  <svg className="w-5 h-5 inline-block ml-1 flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 12c4-0.5,14-0.5,16 0" />
-                    <path d="M14 6l6 6-6 6" />
-                  </svg>
-                </button>
-              </motion.div>
-              
-              <span className="font-handwritten text-gray-500 text-xs">#SmartIndiaHackathon #InnovateForIndia</span>
-            </motion.div>
-
-            {/* Right Sketched Drawing */}
-            <motion.div variants={itemVariants} className="flex-1 flex justify-center">
-              <SketchedRocket />
-            </motion.div>
-          </motion.div>
-        </main>
-
-        {/* Feature Grid / Cards */}
-        <section className="mt-4 max-w-6xl mx-auto w-full">
-          <motion.div 
-            className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full"
-            initial="hidden"
-            animate={shouldAnimate ? "visible" : "hidden"}
-            variants={containerVariants}
-          >
-            {[
-              {
-                ovalText: "PS",
-                title: "Problem Statements",
-                desc: "Browse through various problem statements from sectors",
-                onClick: () => handleNavigation('/dashboard'),
-                color: "text-blue-600/80"
-              },
-              {
-                ovalText: "Deck",
-                title: "SIH PPT Template",
-                desc: "Download the official SIH presentation template document",
-                onClick: () => handleNavigation('/template'),
-                color: "text-orange-600/80"
-              },
-              {
-                ovalText: "Timeline",
-                title: "Event Schedule",
-                desc: "Check the timelines, schedules and important dates",
-                onClick: () => handleNavigation('/schedule'),
-                color: "text-emerald-600/80"
-              },
-              {
-                ovalText: "Q&A",
-                title: "FAQs",
-                desc: "Find quick answers to common questions about the hackathon",
-                onClick: () => handleNavigation('/faqs'),
-                color: "text-purple-600/80"
-              }
-            ].map((card, idx) => (
-              <motion.div
-                key={idx}
-                variants={cardDropVariants}
-                onClick={card.onClick}
-                whileHover={{ y: -6, backgroundColor: "rgba(255, 255, 255, 0.95)" }}
-                className="bg-white/40 border-sketch p-2.5 sm:p-4 flex flex-col items-center justify-between text-center cursor-pointer shadow-sm hover:shadow-md select-none"
+          {/* Right Side: Copyright & Developers */}
+          <div className="flex flex-col text-center lg:text-right leading-tight">
+            <span className="text-slate-500 text-[9px] sm:text-[10px] font-sans">
+              © 2026 SIH2026 • All rights reserved
+            </span>
+            <span className="text-slate-800 font-bold text-[9px] sm:text-[10px] font-sans mt-0.5 whitespace-nowrap">
+              Developed by{' '}
+              <a 
+                href="https://www.linkedin.com/in/kshitijjain-dev/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:underline hover:text-blue-600 transition-colors"
               >
-                <div className="flex flex-col items-center gap-1.5 w-full">
-                  <SketchedOval colorClass={card.color}>
-                    {card.ovalText}
-                  </SketchedOval>
-                  <h3 className="font-serif-elegant text-xs sm:text-base font-bold text-gray-900 leading-tight">{card.title}</h3>
-                  <p className="text-gray-500 text-[9px] sm:text-[11px] leading-normal sm:leading-relaxed">{card.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
-        {/* Footer */}
-        <footer className="mt-4 pt-3 border-t border-sketch-dashed text-center max-w-6xl mx-auto w-full">
-          <p className="font-handwritten text-gray-600 text-xs md:text-sm">
-            Organized by Poornima University in association with Smart India Hackathon
-          </p>
-          <p className="font-handwritten text-gray-700 text-xs mt-0.5 font-bold">
-            Developed by{' '}
-            <a 
-              href="https://www.linkedin.com/in/kshitijjain-dev/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:underline cursor-pointer hover:text-black transition-colors"
-            >
-              Kshitij Jain
-            </a>
-            {' '}&{' '}
-            <a 
-              href="https://www.linkedin.com/in/manvendra-singh-ab88b3330/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:underline cursor-pointer hover:text-black transition-colors"
-            >
-              Manvendra Singh
-            </a> {' '}&{' '}
-            <a 
-              href="https://www.linkedin.com/in/manish-kumar-4b013132a/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:underline cursor-pointer hover:text-black transition-colors"
-            >
-              Manish Kumar
-            </a>
-          </p>
-          <p className="font-handwritten text-gray-400 text-[10px] mt-0.5">
-            © {new Date().getFullYear()} SIH2026 - All rights reserved
-          </p>
-        </footer>
+                Kshitij Jain
+              </a>
+              {' '} & {' '}
+              <a 
+                href="https://www.linkedin.com/in/manvendra-singh-ab88b3330/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:underline hover:text-blue-600 transition-colors"
+              >
+                Manvendra Singh
+              </a>
+              {' '} & {' '}
+              <a 
+                href="https://www.linkedin.com/in/manish-kumar-4b013132a/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:underline hover:text-blue-600 transition-colors"
+              >
+                Manish Kumar
+              </a>
+            </span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
