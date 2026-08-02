@@ -11,15 +11,18 @@ import './App.css';
 
 
 function App() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(() => {
+    return window.location.pathname === '/' || window.location.pathname === '/index.html';
+  });
 
   useEffect(() => {
+    if (!showSplash) return;
     const timer = setTimeout(() => {
       setShowSplash(false);
       window.hasSplashPlayed = true;
     }, 2800); // 2.8 seconds splash time
     return () => clearTimeout(timer);
-  }, []);
+  }, [showSplash]);
 
   return (
     <div className="App">
