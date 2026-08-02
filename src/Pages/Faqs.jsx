@@ -226,7 +226,7 @@ const Faqs = () => {
               className="bg-white border border-slate-100 p-6 shadow-md rounded-[32px] flex flex-col"
               variants={item}
             >
-              <h2 className="font-serif text-xl sm:text-2xl font-extrabold text-[#0c2340] mb-6 pb-3 border-b border-slate-100">
+              <h2 className="font-serif text-xl sm:text-2xl font-extrabold text-[#0c2340] mb-4">
                 {section.title}
               </h2>
               
