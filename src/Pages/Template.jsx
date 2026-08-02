@@ -1,230 +1,106 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import backgroundImage from '../assets/background.png';
 import pptxFile from '../assets/SIH2026-IDEA-Presentation-Format.pptx';
 
-// Animation variants
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.2
-        }
-    }
-};
-
-const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            duration: 0.5
-        }
-    }
-};
-
 const Template = () => {
-    const pptxUrl = pptxFile;
+  const pptxUrl = pptxFile;
 
-    return (
-        <div className="min-h-screen bg-notebook-paper py-12 px-4 sm:px-6 lg:px-8 w-full">
-            <motion.div
-                className="max-w-6xl mx-auto"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-            >
-                <div className="max-w-6xl mx-auto w-full flex justify-between items-center pb-6 border-b border-sketch-dashed mb-8">
-                    <a 
-                        href="/"
-                        className="btn-sketch-secondary p-2.5 inline-flex items-center justify-center"
-                        title="Home"
-                    >
-                        <svg className="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
-                    </a>
-                    <h1 className="font-serif-elegant text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-                        SIH 2026 Template
-                    </h1>
-                    <div className="w-10"></div> {/* Spacer */}
-                </div>
-
-                <motion.div
-                    className="bg-white/40 border-sketch p-6 md:p-8 mb-8 relative shadow-sm"
-                    variants={itemVariants}
-                >
-                    <div className="p-2 md:p-4">
-                        <motion.div
-                            className="text-center mb-8"
-                            variants={itemVariants}
-                        >
-                            <h2 className="font-serif-elegant text-3xl md:text-4xl font-bold text-gray-900 mb-2">SIH 2026 IDEA Presentation</h2>
-                            <div className="w-24 h-0.5 border-b border-sketch-dashed mx-auto mt-2"></div>
-                            <p className="font-handwritten text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-                                Download the official presentation template for your SIH 2026 project submission.
-                            </p>
-                        </motion.div>
-
-                        <motion.div
-                            className="w-full bg-transparent overflow-hidden"
-                            variants={itemVariants}
-                        >
-                            <div className="p-4 sm:p-6 flex flex-col items-center justify-center min-h-[340px] sm:min-h-[380px] bg-transparent">
-                                <div className="max-w-2xl w-full bg-white p-5 sm:p-8 border-none sm:border-sketch text-center shadow-sm">
-                                    <div className="mb-6">
-                                        <div className="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-blue-50">
-                                            <svg
-                                                className="h-10 w-10 text-blue-600"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                                strokeWidth="1.5"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                                                />
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                    <motion.h3
-                                        className="font-serif-elegant text-2xl font-bold text-gray-900 mb-3"
-                                        variants={itemVariants}
-                                    >
-                                        SIH 2026 Presentation Template
-                                    </motion.h3>
-
-                                    <motion.p
-                                        className="text-gray-600 mb-8 max-w-md mx-auto text-sm"
-                                        variants={itemVariants}
-                                    >
-                                        Download the official presentation template for your project submission.
-                                    </motion.p>
-
-                                    <motion.div variants={itemVariants}>
-                                        <a
-                                            href={pptxUrl}
-                                            download="SIH2026-IDEA-Presentation-Format.pptx"
-                                            className="btn-sketch-primary inline-flex items-center px-8 py-3.5 text-base font-semibold shadow-md"
-                                        >
-                                            <svg
-                                                className="-ml-1 mr-3 h-5 w-5 text-white"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                            >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                            Download Template (.pptx)
-                                        </a>
-                                    </motion.div>
-
-                                    <motion.div
-                                        className="mt-6 pt-6 border-t border-sketch-dashed"
-                                        variants={itemVariants}
-                                    >
-                                        <p className="text-xs text-gray-500 font-handwritten text-sm">
-                                            <span className="font-bold">File format:</span> Microsoft PowerPoint (.pptx)
-                                        </p>
-                                        <p className="text-xs text-gray-400 mt-2">
-                                            For best results, open this file in Microsoft PowerPoint 2016 or later
-                                        </p>
-                                    </motion.div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-                </motion.div>
-
-                <motion.div
-                    className="mt-10 bg-white/40 border-sketch p-6 md:p-8 shadow-sm max-w-6xl mx-auto"
-                    variants={itemVariants}
-                >
-                    <h3 className="font-serif-elegant text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">How to Use This Template</h3>
-                    <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
-                        {[
-                            {
-                                icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z',
-                                title: 'Download the Template',
-                                description: 'Click the download button above to get the PowerPoint template file.'
-                            },
-                            {
-                                icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
-                                title: 'Open in PowerPoint',
-                                description: 'Open the downloaded file in Microsoft PowerPoint 2016 or later.'
-                            },
-                            {
-                                icon: 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
-                                title: 'Customize Content',
-                                description: 'Replace the placeholder text and images with your project details.'
-                            },
-                            {
-                                icon: 'M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4',
-                                title: 'Save & Submit',
-                                description: 'Save your changes and submit as per SIH guidelines.'
-                            }
-                        ].map((item, index) => (
-                            <motion.div
-                                key={index}
-                                className="flex flex-col sm:flex-row items-center sm:items-start p-3 sm:p-4 bg-white border-sketch-thin hover:shadow-sm transition-shadow duration-200 text-center sm:text-left"
-                                whileHover={{ y: -2 }}
-                                variants={itemVariants}
-                            >
-                                <div className="flex-shrink-0 h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mb-3 sm:mb-0 sm:mr-4">
-                                    <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={item.icon} />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 className="font-serif-elegant text-sm sm:text-lg font-bold text-gray-900 leading-tight">{item.title}</h4>
-                                    <p className="mt-1 text-[10px] sm:text-xs text-gray-600 leading-normal sm:leading-relaxed">{item.description}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-
-                {/* Footer Section */}
-                <footer className="mt-16 pt-6 border-t border-sketch-dashed text-center max-w-6xl mx-auto w-full">
-                    <p className="font-handwritten text-gray-600 text-xs md:text-sm">
-                        Organized by Poornima University in association with Smart India Hackathon
-                    </p>
-                    <p className="font-handwritten text-gray-700 text-xs mt-0.5 font-bold">
-                        Developed by{' '}
-                        <a 
-                            href="https://www.linkedin.com/in/kshitijjain-dev/" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="hover:underline cursor-pointer hover:text-black transition-colors"
-                        >
-                            Kshitij Jain
-                        </a>
-                        {' '}&{' '}
-                        <a 
-                            href="https://www.linkedin.com/in/manvendra-singh-ab88b3330/" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="hover:underline cursor-pointer hover:text-black transition-colors"
-                        >
-                            Manvendra Singh
-                        </a>
-                    </p>
-                    <p className="font-handwritten text-gray-400 text-[10px] mt-1">
-                        © {new Date().getFullYear()} SIH2026 - All rights reserved
-                    </p>
-                </footer>
-            </motion.div>
+  return (
+    <div 
+      className="min-h-screen p-4 md:p-8 flex flex-col justify-between overflow-y-auto w-full font-sans"
+      style={{
+        backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.96) 30%, rgba(255, 255, 255, 0.82) 70%, rgba(255, 255, 255, 0.4) 100%), url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'right center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      
+      {/* Header */}
+      <header className="max-w-6xl mx-auto w-full pb-4 mb-4">
+        <div className="flex justify-between items-center gap-4">
+          <button
+            onClick={() => window.history.back()}
+            className="bg-white border border-slate-200/80 p-2.5 rounded-2xl shadow-sm hover:shadow-md transition-all text-[#0c2340] cursor-pointer"
+            title="Home"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+          </button>
+          
+          <div className="flex flex-col items-end pr-4 border-r-2 border-blue-600 leading-tight">
+            <h1 className="font-serif text-2xl md:text-3xl font-extrabold text-[#0c2340]">SIH PPT Template</h1>
+            <p className="text-slate-500 text-[10px] sm:text-xs mt-1 font-sans">Download official PPT template for your presentation</p>
+          </div>
         </div>
-    );
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto w-full flex-1 flex flex-col items-center justify-center py-6">
+        <div className="bg-white border border-slate-100 p-8 md:p-10 shadow-lg rounded-[32px] max-w-[420px] w-full flex flex-col items-center text-center">
+          {/* Double Circle Icon Badge */}
+          <div className="relative mb-6">
+            <div className="absolute inset-0 bg-blue-500/10 rounded-full blur-sm scale-110"></div>
+            <div className="relative w-16 h-16 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center shadow-sm">
+              <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+            </div>
+          </div>
+          
+          <h2 className="font-serif text-2xl md:text-3xl font-extrabold text-[#0c2340] mb-2">PPT Template</h2>
+          <div className="w-10 h-[2.5px] bg-blue-600 mx-auto mb-5 rounded-full"></div>
+          
+          <p className="text-[#0c2340] font-semibold text-sm sm:text-base mb-4 leading-relaxed font-sans max-w-[320px]">
+            Official PowerPoint presentation format for project submissions.
+          </p>
+          
+          <p className="text-slate-500 text-xs max-w-[280px] mx-auto mb-6 leading-relaxed font-sans">
+            Please adhere to the guidelines and templates provided inside this presentation to submit your ideas successfully.
+          </p>
+          
+          <div className="mb-6">
+            <a 
+              href={pptxUrl}
+              download="SIH2026-IDEA-Presentation-Format.pptx"
+              className="bg-[#0c2340] hover:bg-[#1d4ed8] text-white px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold shadow-md transition-all duration-300 flex items-center gap-2 cursor-pointer"
+            >
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>Download Template (.pptx)</span>
+            </a>
+          </div>
+
+          {/* Compact Instructions */}
+          <div className="pt-5 border-t border-slate-100 w-full text-left font-sans">
+            <h4 className="font-bold text-slate-800 text-[10px] sm:text-xs mb-3 uppercase tracking-wide">Steps to use:</h4>
+            <ul className="text-slate-500 text-[11px] space-y-2.5 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <span className="font-bold text-blue-600">1.</span>
+                <span>Download the official presentation format.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="font-bold text-blue-600">2.</span>
+                <span>Open in Microsoft PowerPoint (2016 or later).</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="font-bold text-blue-600">3.</span>
+                <span>Customize slides with your specific project details.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="font-bold text-blue-600">4.</span>
+                <span>Save slides and submit per instructions.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+
+    </div>
+  );
 };
 
 export default Template;
