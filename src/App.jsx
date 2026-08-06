@@ -6,6 +6,7 @@ import Schedule from './Pages/Schedule';
 import Faqs from './Pages/Faqs';
 import Template from './Pages/Template';
 import Dashboard from './Pages/Dashboard';
+import Certificates from './Pages/Certificates';
 import YouTube from './Pages/Youtube';
 import './App.css';
 
@@ -141,6 +142,10 @@ function App() {
         <Route 
           path="/youtube" 
           element={<YouTube />} 
+        />
+        <Route 
+          path="/certificates" 
+          element={<Certificates />} 
         />
         <Route 
           path="*" 
