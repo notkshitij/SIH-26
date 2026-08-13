@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Landing from './Pages/Landing';
 import Schedule from './Pages/Schedule';
@@ -8,6 +8,7 @@ import Template from './Pages/Template';
 import Dashboard from './Pages/Dashboard';
 import Certificates from './Pages/Certificates';
 import YouTube from './Pages/Youtube';
+import NotFound from './Pages/NotFound';
 import './App.css';
 
 
@@ -149,7 +150,7 @@ function App() {
         />
         <Route 
           path="*" 
-          element={<Navigate to="/" replace />} 
+          element={<NotFound />} 
         />
       </Routes>
     </div>
