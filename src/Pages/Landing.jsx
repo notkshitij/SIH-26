@@ -126,7 +126,7 @@ const DesktopLanding = ({ navigate }) => {
 
   return (
     <div 
-      className={`min-h-screen w-full p-3 md:p-6 lg:px-12 flex flex-col justify-between overflow-y-auto relative ${isMounted ? 'opacity-100' : 'opacity-0'}`} 
+      className={`h-screen w-full p-3 md:p-6 lg:px-12 flex flex-col justify-between overflow-hidden relative ${isMounted ? 'opacity-100' : 'opacity-0'}`} 
       style={{ 
         backgroundImage: `url(${backgroundImage})`, 
         backgroundSize: 'cover', 
@@ -425,7 +425,7 @@ const MobileLanding = ({ navigate }) => {
 
   return (
     <div 
-      className="min-h-screen w-full p-4 flex flex-col justify-between overflow-y-auto relative bg-[#f8fafc]" 
+      className="h-screen w-full p-4 flex flex-col justify-between overflow-hidden relative bg-[#f8fafc]" 
       style={{ 
         backgroundImage: `url(${phoneBgImage})`, 
         backgroundSize: 'cover', 
